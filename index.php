@@ -1,10 +1,6 @@
 <?php
   session_start();
 
-  // Display errors
-  error_reporting(E_ALL);
-  ini_set('display_errors', '1');
-
 
   // Database Connection
   require_once "./Model/dbConnection.php";
@@ -20,7 +16,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forum</title>
   <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100" rel="stylesheet" />
 </head>
 
 <body>
