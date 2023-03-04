@@ -1,3 +1,15 @@
-{"_id":"1","login":"","motdepasse":"","email":""}
-{"_id":"2","login":"","motdepasse":"","email":""}
-{"_id":"3","login":"","motdepasse":"","email":""}
+[{
+  "_id": {
+    "$oid": "64038ed65c93101a6707dc7b"
+  },
+  "username": "Firdaousse",
+  "email": "firdaousse@mail.com",
+  "password": "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8"
+},{
+  "_id": {
+    "$oid": "64038f225c93101a6707dc7d"
+  },
+  "username": "testeur",
+  "email": "test@mail.com",
+  "password": "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8"
+}]

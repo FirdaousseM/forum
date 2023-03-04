@@ -1,0 +1,56 @@
+.form-bloc {
+
+
+  .main-heading {
+    text-align: center;
+    color: darken($main-color, 20%);
+    font-size: 3em;
+  }
+
+  .main-content {
+    min-width: 40vw;
+
+    .register-form {
+
+      display: flex;
+      flex-direction: column;
+      border: 2px solid $main-color;
+      border-radius: 1em;
+      padding: 2em;
+
+      &__elem {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 1em;
+
+        label {
+          font-weight: bold;
+          font-size: 1.8em;
+
+          &::first-letter {
+            color: darken($main-color, 10%);
+          }
+        }
+
+        input {
+          font-size: 1.8em;
+          box-shadow: none;
+          border-radius: 0.2em;
+          outline: none;
+          border: 1px solid black;
+          padding: 0.3em;
+        }
+      }
+    }
+
+    .login-register-link {
+      font-size: 2em;
+    }
+  }
+  input[type="submit"] {
+    font-size: 2em;
+    min-width: 40%;
+    align-self: flex-end;
+  }
+}

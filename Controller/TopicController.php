@@ -78,6 +78,7 @@ class TopicController
       $newtopic->setAuthor_id($_SESSION['user']->_id);
       $this->topicManager->create($newtopic);
     }
+    header("Location: index.php");
   }
 
   /*

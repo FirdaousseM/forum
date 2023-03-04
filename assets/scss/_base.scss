@@ -1,0 +1,147 @@
+/* VARIABLES */
+$main-color: rgb(157, 120, 252);
+$second-color: rgb(92, 246, 74);
+
+/* MIXINS */
+@mixin btn($color){
+  color: white;
+  background-color: $color;
+
+  border: 4px solid $color;
+  border-radius: 0.2em;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: ease-out 100ms;
+
+
+}
+
+@mixin btn-hover($color){
+  color: $color;
+  background-color: white;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+  font-family: 'Montserrat';
+
+  .container {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    /* PAGE LAYOUT */
+
+    main {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1 0 auto;
+    }
+
+
+    /* RESET BUTTON */
+    input[type="submit"] {
+      padding: 0;
+    }
+
+    /* GENERAL STYLING */
+
+    .submit-btn {
+
+      @include btn(darken($second-color, 25%));
+
+      &:hover {
+        @include btn-hover(darken($second-color, 25%));
+      }
+    }
+    
+    .create-btn {
+
+      text-decoration: none;
+      @include btn(darken($main-color, 25%));
+
+      &:hover {
+        @include btn-hover(darken($main-color, 25%));
+      }
+    }
+
+    .edit-btn {
+
+      @include btn(#db8f00);
+
+      &:hover {
+        @include btn-hover(#db8f00);
+      }
+    }
+
+    .delete-btn {
+      text-decoration: none;
+      @include btn(red);
+
+      &:hover {
+        @include btn-hover(red);
+      }
+    }
+
+    .topic-link {
+      text-decoration: none;
+      color: black;
+
+    }
+
+    /* Dropdown Menu */
+
+    .dropdown-menu-activator {
+      cursor: pointer;
+      &:hover .dropdown-menu-content {
+        display: block;
+      }
+    }
+
+    .dropdown-menu-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      border-radius: 0.5rem;
+      border: 1px #b7b7b7 solid;
+      z-index: 1;
+      margin: 0;
+
+      a {
+        display: block;
+        padding: 0.6em;
+        text-decoration: none;
+        color: black;
+
+        transition: ease-out 200ms;
+
+        &:hover {
+          background-color: $main-color;
+          color: white;
+        }
+
+        &:nth-child(1) {
+          border-top-left-radius: 0.5rem;
+          border-top-right-radius: 0.5rem;
+        }
+
+        &:nth-last-child(1) {
+          border-bottom-left-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+        }
+      }
+
+    }
+  }
+}

@@ -1,6 +1,7 @@
 <?php
 require_once "Topic.php";
 require_once "Model/Message/MessageManager.php";
+require_once "Model/User/UserManager.php";
 
 class TopicManager
 {
@@ -65,7 +66,13 @@ class TopicManager
   public function getAllMessageByTopic($id){
     $messageManager = new MessageManager($this->db);
     $allMessages = $messageManager->findByTopicId($id);
-    return $allMessages->toArray();
+    return $allMessages;
+  }
+
+  public function getAuthor($id){
+    $userManager = new UserManager($this->db);
+    $user = $userManager->findById($id);
+    return $user->toArray();
   }
   
   public function findById($id)
@@ -86,7 +93,8 @@ class TopicManager
     
     $topicResult = array(
       "topic" => $topic[0],
-      "messages" => $this->getAllMessageByTopic($id));
+      "messages" => $this->getAllMessageByTopic($id),
+      "author" => $this->getAuthor($topic[0]->author_id)[0]);
 
     return $topicResult;
   }
@@ -104,7 +112,18 @@ class TopicManager
       echo "Probleme : " . $e->getMessage();
       exit();
     }
-    return $topics;
+    $topics = $topics->toArray();
+    $topicResults = [];
+    
+    for ($i=0 ; $i < count($topics) ; $i++){
+      $topicResults[$i] = array(
+        "topic" => $topics[$i],
+        "messages" => $this->getAllMessageByTopic($topics[$i]->_id),
+        "author" => $this->getAuthor($topics[$i]->author_id)[0]);
+    }
+
+    
+    return $topicResults;
   }
 
   public function findByAuthorId($authorId)

@@ -11,53 +11,61 @@ class messageView
   {
   ?>
     <h1>Écrire un message</h1>
-    <form action="index.php?ctrl=message&action=create" method="POST">
-      <div>
-        <label for="content">Contenu</label>
-        <input id="content" name="content" type="text">
-      </div>
-      <div>
-        <label for="topic_id">Sujet</label>
-        <input id="topic_id" name="topic_id" type="text" value="<?php echo $_GET['topic_id'] ?>">
-      </div>
-      <div>
-        <label for="previous_message_id">Message précédent</label>
-        <input id="previous_message_id" name="previous_message_id" type="text" value="<?php echo $_GET['previous_message_id'] ?>">
-      </div>
-      <input type="submit" value="Créer">
-    </form>
+    <div class="form-bloc">
+      <form class="main-content" action="index.php?ctrl=message&action=create" method="POST">
+        <div class="register-form__elem">
+          <label for="content">Contenu</label>
+          <textarea id="content" name="content"></textarea>
+        </div>
+        <input hidden id="topic_id" name="topic_id" type="text" value="<?php echo $_GET['topic_id'] ?>">
+
+        <!--
+        <div class="register-form__elem">
+          <label for="topic_id">Sujet</label>
+          <input id="topic_id" name="topic_id" type="text" value="<?php echo $_GET['topic_id'] ?>">
+        </div>
+        -->
+        <!--
+        <div class="register-form__elem">
+          <label for="previous_message_id">Message précédent</label>
+          <input id="previous_message_id" name="previous_message_id" type="text" value="<?php echo $_GET['previous_message_id'] ?>">
+        </div>
+        -->
+        <input class="submit-btn" type="submit" value="Poster">
+      </form>
+    </div>
   <?php
   }
 
   function seeOne($message)
   {
   ?>
-    <h1>Le message <?php echo $message->_id ?></h1>
+    <h1>Le message <?php echo $message['message']->_id ?></h1>
 
     <section>
       <div>
         <label for="content">Contenu :</label>
-        <span><?php echo $message->content ?></span>
+        <span><?php echo $message['message']->content ?></span>
       </div>
       <div>
         <label for="topic_id">Topic_id :</label>
-        <span><?php echo $message->topic_id ?></span>
+        <span><?php echo $message['message']->topic_id ?></span>
       </div>
       <div>
         <label for="author_id">Author_id :</label>
-        <span><?php echo $message->author_id ?></span>
+        <span><?php echo $message['author']->username ?></span>
       </div>
       <div>
         <label for="publication_date">Publication_date :</label>
-        <span><?php echo $message->publication_date ?></span>
+        <span><?php echo $message['message']->publication_date ?></span>
       </div>
       <div>
         <label for="modification_date">Modification_date :</label>
-        <span><?php echo $message->modification_date ?></span>
+        <span><?php echo $message['message']->modification_date ?></span>
       </div>
       <div>
         <label for="previous_message_id">Previous_message_id :</label>
-        <span><?php echo $message->previous_message_id ?></span>
+        <span><?php echo $message['message']->previous_message_id ?></span>
       </div>
     </section>
   <?php

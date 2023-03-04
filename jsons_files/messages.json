@@ -1,3 +1,43 @@
-{"_id":"1","contenu":"","date_de_publication":"","date_de_modification":"","id_auteur":"","id_sujet":"","id_message_precedent":""}
-{"_id":"2","contenu":"","date_de_publication":"","date_de_modification":"","id_auteur":"","id_sujet":"","id_message_precedent":""}
-{"_id":"3","contenu":"","date_de_publication":"","date_de_modification":"","id_auteur":"","id_sujet":"","id_message_precedent":""}
+[{
+  "_id": {
+    "$oid": "64038f035c93101a6707dc7c"
+  },
+  "content": "Juste pour dire bonjour.",
+  "topic_id": {
+    "$oid": "64038ee4263fb87096092c3e"
+  },
+  "author_id": {
+    "$oid": "64038ed65c93101a6707dc7b"
+  },
+  "publication_date": null,
+  "modification_date": null,
+  "previous_message_id": null
+},{
+  "_id": {
+    "$oid": "64038f3f5c93101a6707dc7e"
+  },
+  "content": "Coucou",
+  "topic_id": {
+    "$oid": "64038ee4263fb87096092c3e"
+  },
+  "author_id": {
+    "$oid": "64038f225c93101a6707dc7d"
+  },
+  "publication_date": null,
+  "modification_date": null,
+  "previous_message_id": null
+},{
+  "_id": {
+    "$oid": "64038f5e5c93101a6707dc7f"
+  },
+  "content": "Voilà je teste ",
+  "topic_id": {
+    "$oid": "64038f50263fb87096092c3f"
+  },
+  "author_id": {
+    "$oid": "64038f225c93101a6707dc7d"
+  },
+  "publication_date": null,
+  "modification_date": null,
+  "previous_message_id": null
+}]

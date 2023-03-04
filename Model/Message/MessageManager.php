@@ -71,6 +71,12 @@ class MessageManager
 
   /* READ */
 
+  public function getAuthor($id){
+    $userManager = new UserManager($this->db);
+    $user = $userManager->findById($id);
+    return $user->toArray();
+  }
+
   public function findById($id)
   {
     try {
@@ -121,8 +127,6 @@ class MessageManager
 
   public function findByTopicId($topicId)
   {
-    var_dump($topicId);
-
     try {
       // Définition de la requête
       $filter = ['topic_id' => new \MongoDB\BSON\ObjectId($topicId)];
@@ -134,7 +138,17 @@ class MessageManager
       echo "Probleme : " . $e->getMessage();
       exit();
     }
-    return $messages;
+    $messages = $messages->toArray();
+    $messageResults = [];
+
+    for ($i=0 ; $i < count($messages) ; $i++){
+
+    $messageResults[$i] = array(
+      "message" => $messages[$i],
+      "author" => $this->getAuthor($messages[$i]->author_id)[0]);
+    }
+
+    return $messageResults;
   }
 
   public function findByPreviousMessageId($previousMessageId)

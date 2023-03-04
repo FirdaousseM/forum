@@ -1,0 +1,43 @@
+.topic-content {
+  width: 70vw;
+
+  display: flex;
+  flex-direction: column;
+
+  .message {
+    display: flex;
+    flex-flow: column;
+    align-items: baseline;
+    margin-bottom: 1em;
+
+    padding-bottom: 1em;
+
+    &__header{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+      
+      &__author{
+        padding: 1em 1em 0 1em;
+        margin: 0 1em;
+        background-color: darken($main-color, 15%);
+
+        color: white;
+        font-weight: bold;
+
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+      }
+    }
+
+    &__content{
+      width: 100%;
+      padding-left: 1em;
+
+      border-radius: 0.5em;
+      background-color: lighten($main-color, 25%);
+      border: 2px solid darken($main-color, 15%);
+    }
+  }
+}

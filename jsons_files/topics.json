@@ -1,3 +1,17 @@
-{"_id":"1","titre":"","id_auteur":""}
-{"_id":"2","titre":"","id_auteur":""}
-{"_id":"3","titre":"","id_auteur":""}
+[{
+  "_id": {
+    "$oid": "64038ee4263fb87096092c3e"
+  },
+  "title": "Bonjour",
+  "author_id": {
+    "$oid": "64038ed65c93101a6707dc7b"
+  }
+},{
+  "_id": {
+    "$oid": "64038f50263fb87096092c3f"
+  },
+  "title": "Juste pour tester",
+  "author_id": {
+    "$oid": "64038f225c93101a6707dc7d"
+  }
+}]

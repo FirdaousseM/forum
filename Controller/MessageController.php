@@ -71,15 +71,18 @@ class MessageController
    */
   function doCreate()
   {
+    $newMessage = null;
     if (
-      isset($_POST['content']) &&
+      isset($_POST['content']) /*&&
       isset($_POST['topic_id']) &&
       isset($_POST['previous_message_id'])
-    ) {
+      */
+      ) {
       $newMessage = new Message($_POST);
       $newMessage->setAuthor_id($_SESSION['user']->_id);
       $this->messageManager->create($newMessage);
     }
+    header("Location: index.php?ctrl=topic&action=see&id=". $newMessage->getTopic_id());
   }
 
   /*

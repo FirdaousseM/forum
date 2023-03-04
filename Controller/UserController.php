@@ -39,6 +39,9 @@ class UserController
         case "login":
           $this->doLogin();
           break;
+        case "logout":
+          $this->doLogout();
+          break;
         case "seeAll":
           $this->doFindAll();
           break;
@@ -70,9 +73,12 @@ class UserController
     if ($userExists != null) {
       echo "Connexion reussie";
       $_SESSION['user'] = $userExists[0];
+      header("Location: index.php?ctrl=topic&action=seeAll");
     }
     else {
+      header("Location: index.php?ctrl=user&action=loginForm");
       echo "Identifiants incorrects.";
+
     }
   }
 
@@ -90,6 +96,8 @@ class UserController
     else {
       echo "Personne n'est connecté";
     }
+    header("Location: index.php?ctrl=topic&action=seeAll");
+
   }
 
   /*
@@ -107,6 +115,9 @@ class UserController
         $newUser = new User($_POST);
 
         $this->userManager->create($newUser);
+
+        $this->doLogin();
+        header("Location: index.php?ctrl=topic&action=seeAll");
       } else {
         $error = "ERROR : This email (" . $_POST['email'] . ") is used by another user";
       }
@@ -147,6 +158,8 @@ class UserController
   {
     $updatedUser = new User($_POST);
     $this->userManager->update($updatedUser);
+    header("Location: index.php");
+
   }
 
   /*
@@ -159,5 +172,7 @@ class UserController
       $userId = $_GET['id'];
     }
     $this->userManager->delete($userId);
+    header("Location: index.php");
+
   }
 }

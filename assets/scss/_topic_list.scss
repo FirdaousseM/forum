@@ -1,0 +1,50 @@
+.topic-list-bloc {
+
+  .main-heading {
+    text-align: center;
+    color: darken($main-color, 20%);
+    font-size: 3em;
+  }
+
+  .main-content {
+    min-width: 50vw;
+
+    .table-col {
+      &-large {
+        width: 70%;
+      }
+
+      &-medium {
+        width: 20%;
+      }
+
+      &-small {
+        width: 5%;
+      }
+    }
+
+    .table-header {
+      background-color: lighten($main-color, 10%);
+      text-align: left;
+
+      th {
+        padding: 0.5em;
+        font-size: 1.4em;
+
+        &:nth-child(1) {
+          border-top-left-radius: 1em;
+
+        }
+
+        &:nth-last-child(1) {
+          border-top-right-radius: 1em;
+        }
+      }
+    }
+
+    tr {
+      border: solid 1px black;
+      margin-bottom: 1em;
+    }
+  }
+}

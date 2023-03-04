@@ -1,0 +1,34 @@
+.page-header{
+  background-color: lighten($main-color, 20%);
+  margin: 0;
+  padding: 1em 0;
+
+  flex-shrink: 0;
+
+  .nav-list{
+    list-style: none;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &__elem{
+      font-size: 1.5em;
+      font-weight: bold;
+      &-link{
+        text-decoration: none;
+        color: black;
+
+        transition: ease-in-out 200ms;
+        &:hover{
+          text-decoration: underline 3px black;
+        }
+      }
+      .mon-compte{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+  }
+}

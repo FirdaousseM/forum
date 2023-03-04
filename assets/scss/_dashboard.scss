@@ -1,0 +1,16 @@
+.dashboard-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.5em;
+  &__elem{
+    margin-bottom: 1em;
+    &__heading{
+      font-weight: bold;
+    }
+
+    &__info{
+      
+    }
+  }
+}
